@@ -12,7 +12,7 @@ export default function Footer() {
           <p className="text-lg text-white/90 mb-10 max-w-2xl mx-auto relative z-10">
             Mari diskusikan visi Anda. Tim kami siap merancang solusi teknologi yang disesuaikan khusus untuk pertumbuhan bisnis Anda.
           </p>
-          <Link href="/kontak" className="inline-block px-8 py-4 bg-brand-gold hover:bg-yellow-500 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-brand-gold/50 relative z-10 hover:-translate-y-1">
+          <Link href="/contact" className="inline-block px-8 py-4 bg-brand-gold hover:bg-yellow-500 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-brand-gold/50 relative z-10 hover:-translate-y-1">
             Mulai Konsultasi Proyek
           </Link>
         </div>
@@ -26,8 +26,8 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-            <Link href="/tentang-kami" className="hover:text-brand-teal transition-colors">Tentang Kami</Link>
-            <Link href="/layanan" className="hover:text-brand-teal transition-colors">Layanan</Link>
+            <Link href="/about" className="hover:text-brand-teal transition-colors">Tentang Kami</Link>
+            <Link href="/services" className="hover:text-brand-teal transition-colors">Layanan</Link>
             <Link href="/blog" className="hover:text-brand-teal transition-colors">Blog</Link>
           </div>
 

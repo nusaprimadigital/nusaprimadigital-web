@@ -21,10 +21,10 @@ export default function Hero() {
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4">
-        <Link href="/kontak" className="px-8 py-4 bg-brand-gold hover:bg-yellow-500 text-white font-semibold rounded-full flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-brand-gold/50">
+        <Link href="/contact" className="px-8 py-4 bg-brand-gold hover:bg-yellow-500 text-white font-semibold rounded-full flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-brand-gold/50">
           Konsultasi Gratis <ArrowRight size={20} />
         </Link>
-        <Link href="/portofolio" className="px-8 py-4 bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-brand-teal font-semibold rounded-full transition-all flex items-center justify-center">
+        <Link href="/portfolio" className="px-8 py-4 bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-brand-teal font-semibold rounded-full transition-all flex items-center justify-center">
           Lihat Portofolio
         </Link>
       </div>

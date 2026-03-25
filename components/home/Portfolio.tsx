@@ -21,7 +21,7 @@ export default function Portfolio() {
               Eksplorasi hasil kerja kami dalam mengubah ide menjadi pengalaman digital yang fungsional.
             </p>
           </div>
-          <Link href="/portofolio" className="hidden md:flex items-center gap-2 font-semibold text-brand-teal hover:text-brand-blue transition-colors">
+          <Link href="/portfolio" className="hidden md:flex items-center gap-2 font-semibold text-brand-teal hover:text-brand-blue transition-colors">
             Eksplorasi Portofolio <ArrowRight size={20} />
           </Link>
         </div>
@@ -43,7 +43,7 @@ export default function Portfolio() {
           ))}
         </div>
         
-        <Link href="/portofolio" className="md:hidden mt-8 w-full py-4 rounded-full border border-slate-200 dark:border-slate-800 font-semibold flex items-center justify-center gap-2">
+        <Link href="/portfolio" className="md:hidden mt-8 w-full py-4 rounded-full border border-slate-200 dark:border-slate-800 font-semibold flex items-center justify-center gap-2">
           Eksplorasi Portofolio <ArrowRight size={20} />
         </Link>
       </div>

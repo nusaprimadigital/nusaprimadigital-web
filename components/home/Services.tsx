@@ -33,7 +33,7 @@ export default function Services() {
       </div>
       
       <div className="mt-12 text-center">
-        <Link href="/layanan" className="inline-flex items-center gap-2 font-semibold text-brand-teal hover:text-brand-blue transition-colors">
+        <Link href="/services" className="inline-flex items-center gap-2 font-semibold text-brand-teal hover:text-brand-blue transition-colors">
           Lihat Detail Semua Layanan <ArrowRight size={20} />
         </Link>
       </div>
