@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -19,10 +20,13 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-slate-200 dark:border-slate-800 pt-8 gap-6">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-brand-teal to-brand-blue rounded-md flex items-center justify-center font-bold text-white text-sm">
-              N
-            </div>
-            <span className="font-bold tracking-tight">Agency © {new Date().getFullYear()}</span>
+            <Image 
+              src="/logo.png" 
+              alt="Nusaprima Digital Logo" 
+              width={140} 
+              height={32} 
+              className="w-auto h-8 object-contain"
+            />
           </div>
           
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">

@@ -38,18 +38,8 @@ export default defineType({
     defineField({
       name: 'mainImage',
       title: 'Gambar Utama',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Teks Alternatif (Alt Text)',
-          description: 'Deskripsi gambar untuk aksesibilitas dan SEO',
-        },
-      ],
+      type: 'cloudinary.asset',
+      description: 'Pilih gambar dari Cloudinary untuk disajikan langsung melalui CDN Cloudinary',
     }),
     defineField({
       name: 'categories',

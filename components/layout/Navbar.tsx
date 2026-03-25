@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { Moon, Sun, ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -42,10 +43,14 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 z-50">
-          <div className="w-10 h-10 bg-gradient-to-br from-brand-teal to-brand-blue rounded-lg flex items-center justify-center font-bold text-white text-xl shadow-lg">
-            N
-          </div>
-          <span className="font-bold text-xl tracking-tight hidden sm:block">Agency</span>
+          <Image 
+            src="/logo.png" 
+            alt="Nusaprima Digital Logo" 
+            width={180} 
+            height={40} 
+            className="w-auto h-10 object-contain"
+            priority 
+          />
         </Link>
 
         {/* Desktop Navigation */}
