@@ -18,19 +18,18 @@ export default function Navbar() {
     const timer = setTimeout(() => {
       setMounted(true);
     }, 0);
-
     return () => clearTimeout(timer);
   }, []);
 
-  const isActive = (path: string) => pathname === path;
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const isActive = (path: string) => pathname === path;
 
   const servicesLinks = [
     { name: "Jasa Pembuatan Website", href: "/services" },
@@ -40,7 +39,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <nav className={`fixed top-0 w-full z-50 transition-colors duration-300 border-b border-slate-200 dark:border-slate-800 ${isMenuOpen ? 'bg-white dark:bg-slate-900' : 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md'}`}>
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 z-50">
           <Image 
@@ -53,23 +52,15 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link 
-            href="/" 
-            className={`text-sm font-medium transition-colors hover:text-brand-teal ${isActive('/') ? 'text-brand-teal' : 'text-slate-600 dark:text-slate-300'}`}
-          >
-            Home
-          </Link>
+          <Link href="/" className={`text-sm font-medium transition-colors hover:text-brand-teal ${isActive('/') ? 'text-brand-teal' : 'text-slate-600 dark:text-slate-300'}`}>Home</Link>
           
           <div 
             className="relative group"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
-            <button 
-              className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-teal ${pathname.startsWith('/services') ? 'text-brand-teal' : 'text-slate-600 dark:text-slate-300'}`}
-            >
+            <button className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-brand-teal ${pathname.startsWith('/services') ? 'text-brand-teal' : 'text-slate-600 dark:text-slate-300'}`}>
               Layanan <ChevronDown size={14} className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
             </button>
             
@@ -110,7 +101,6 @@ export default function Navbar() {
             Hubungi Kami
           </Link>
 
-          {/* Mobile Menu Button */}
           <button 
             className="md:hidden p-2 text-slate-600 dark:text-slate-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -120,27 +110,28 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden fixed inset-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl z-40 flex flex-col pt-24 px-6 gap-6 transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
-        <div className="flex flex-col gap-4">
-          <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200">Home</Link>
-          <div className="flex flex-col gap-3 pl-4 border-l-2 border-slate-100 dark:border-slate-800">
-            <span className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Layanan</span>
+      <div className={`md:hidden absolute top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-white dark:bg-slate-900 flex flex-col py-8 px-6 gap-6 transition-all duration-300 overflow-y-auto ${isMenuOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-full'}`}>
+        <div className="flex flex-col gap-2">
+          <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200 border-b border-slate-100 dark:border-slate-800 py-3">Home</Link>
+          
+          <div className="flex flex-col gap-3 py-3 border-b border-slate-100 dark:border-slate-800">
+            <span className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Layanan</span>
             {servicesLinks.map((service) => (
               <Link 
                 key={service.href} 
                 href={service.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-base text-slate-600 dark:text-slate-400 hover:text-brand-teal"
+                className="text-base text-slate-600 dark:text-slate-400 hover:text-brand-teal pl-4 relative before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:bg-slate-300 before:rounded-full"
               >
                 {service.name}
               </Link>
             ))}
           </div>
-          <Link href="/portfolio" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200">Portofolio</Link>
-          <Link href="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200">Blog</Link>
-          <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200">About Us</Link>
-          <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-brand-gold">Hubungi Kami</Link>
+          
+          <Link href="/portfolio" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200 border-b border-slate-100 dark:border-slate-800 py-3">Portofolio</Link>
+          <Link href="/blog" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200 border-b border-slate-100 dark:border-slate-800 py-3">Blog</Link>
+          <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-slate-800 dark:text-slate-200 border-b border-slate-100 dark:border-slate-800 py-3">About Us</Link>
+          <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-brand-gold py-4">Hubungi Kami</Link>
         </div>
       </div>
     </nav>
