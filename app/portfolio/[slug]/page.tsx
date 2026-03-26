@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { projectQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -75,7 +75,7 @@ export default async function ProjectDetail({ params }: Props) {
                 {project.mainImage ? (
                     <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
                         <Image
-                            src={urlForImage(project.mainImage).url()}
+                            src={urlFor(project.mainImage).url()}
                             alt={project.mainImage.alt || project.title}
                             width={800}
                             height={600}
@@ -108,7 +108,7 @@ export default async function ProjectDetail({ params }: Props) {
               {project.gallery.map((img, idx) => (
                 <div key={idx} className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800">
                   <Image
-                    src={urlForImage(img).url()}
+                    src={urlFor(img).url()}
                     alt={img.alt || `Screenshot ${idx + 1}`}
                     width={800}
                     height={500}

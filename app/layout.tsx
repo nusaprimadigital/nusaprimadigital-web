@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <main className="min-h-screen pt-20">
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

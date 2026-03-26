@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { projectsQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
@@ -33,7 +33,7 @@ export default async function PortfolioPage() {
                 <div className="aspect-video relative overflow-hidden bg-slate-200 dark:bg-slate-800">
                   {project.mainImage && (
                     <Image
-                      src={urlForImage(project.mainImage).url()}
+                      src={urlFor(project.mainImage).url()}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"

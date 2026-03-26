@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { postQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { Calendar, User, ArrowLeft } from "lucide-react";
@@ -57,7 +57,7 @@ export default async function BlogPost({ params }: Props) {
         {post.mainImage && (
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden mb-10 bg-slate-200">
             <Image
-              src={urlForImage(post.mainImage).url()}
+              src={urlFor(post.mainImage).url()}
               alt={post.title}
               fill
               className="object-cover"

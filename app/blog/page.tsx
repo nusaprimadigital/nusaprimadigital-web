@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { postsQuery } from "@/sanity/lib/queries";
-import { urlForImage } from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, User } from "lucide-react";
@@ -35,7 +35,7 @@ export default async function BlogPage() {
                 <div className="aspect-[16/10] relative overflow-hidden bg-slate-200 dark:bg-slate-800">
                   {post.mainImage && (
                     <Image
-                      src={urlForImage(post.mainImage).url()}
+                      src={urlFor(post.mainImage).url()}
                       alt={post.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
