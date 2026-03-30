@@ -1,14 +1,33 @@
 import { Code, Layout, Smartphone, Search, Zap, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Services() {
   const servicesList = [
-    { icon: Layout, title: "UI/UX Design", desc: "Desain antarmuka estetis dan intuitif yang berpusat pada pengalaman pengguna." },
-    { icon: Code, title: "Web Development", desc: "Pengembangan sistem yang tangguh dengan teknologi terkini (Next.js & TypeScript)." },
-    { icon: Smartphone, title: "Responsive Layout", desc: "Tampil sempurna di segala resolusi perangkat, dari desktop hingga smartphone." },
-    { icon: Search, title: "SEO Optimization", desc: "Struktur kode yang ramah mesin pencari untuk meningkatkan visibilitas organik." },
-    { icon: Zap, title: "High Performance", desc: "Optimasi kecepatan muat halaman untuk Core Web Vitals yang maksimal." },
-    { icon: ShieldCheck, title: "Security First", desc: "Penerapan standar keamanan modern untuk melindungi data Anda dan pengguna." }
+    { 
+      icon: Layout, 
+      title: "UI/UX Design", 
+      desc: "Desain antarmuka estetis dan intuitif yang berpusat pada pengalaman pengguna.",
+      image: "/ecommerce.webp"
+    },
+    { 
+      icon: Code, 
+      title: "Web Development", 
+      desc: "Pengembangan sistem yang tangguh dengan teknologi terkini (Next.js & TypeScript).",
+      image: "/sekolah.webp"
+    },
+    { 
+      icon: Smartphone, 
+      title: "Responsive Layout", 
+      desc: "Tampil sempurna di segala resolusi perangkat, dari desktop hingga smartphone.",
+      image: "/bengkel-las.webp"
+    },
+    { 
+      icon: Search, 
+      title: "SEO Optimization", 
+      desc: "Struktur kode yang ramah mesin pencari untuk meningkatkan visibilitas organik.",
+      image: "/ecommerce.webp"
+    },
   ];
 
   return (
@@ -20,14 +39,25 @@ export default function Services() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {servicesList.map((service, idx) => (
-          <div key={idx} className="p-8 rounded-3xl bg-surface-light dark:bg-surface-dark border border-slate-100 dark:border-slate-800 hover:border-brand-teal/50 transition-all hover:-translate-y-1 hover:shadow-xl group">
-            <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <service.icon size={28} className="text-brand-teal" />
+          <div key={idx} className="rounded-3xl bg-surface-light dark:bg-surface-dark border border-slate-100 dark:border-slate-800 hover:border-brand-teal/50 transition-all hover:-translate-y-1 hover:shadow-xl group overflow-hidden">
+            <div className="relative h-48 overflow-hidden">
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm flex items-center justify-center">
+                <service.icon size={24} className="text-brand-teal" />
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{service.desc}</p>
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{service.desc}</p>
+            </div>
           </div>
         ))}
       </div>

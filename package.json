@@ -14,6 +14,7 @@
     "@portabletext/react": "^6.0.3",
     "@sanity/image-url": "^2.0.3",
     "@sanity/vision": "^5.18.0",
+    "axios": "1.14.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.6.0",
     "next": "16.2.1",
@@ -23,6 +24,7 @@
     "react-dom": "19.2.4",
     "sanity": "^5.18.0",
     "sanity-plugin-cloudinary": "^1.4.1",
+    "socket.io-client": "4.8.3",
     "styled-components": "^6.3.12"
   },
   "devDependencies": {
