@@ -105,7 +105,7 @@ export default async function ProjectDetail({ params }: Props) {
           <div className="mt-12 pt-12 border-t border-slate-200 dark:border-slate-800">
             <h2 className="text-2xl font-bold mb-8">Screenshot</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.gallery.map((img, idx) => (
+              {project.gallery.filter((img) => img?.asset?._ref).map((img, idx) => (
                 <div key={idx} className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800">
                   <Image
                     src={urlFor(img).url()}
